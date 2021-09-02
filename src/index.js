@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 // == Import : local
 import store from 'src/store';
 // Composants
-import App from 'src/components/App';
+import Vanta from 'src/components/Vanta';
 
 // == Render
 // 1. Élément React racine (celui qui contient l'ensemble de l'app)
@@ -14,7 +14,7 @@ import App from 'src/components/App';
 const rootReactElement = (
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <Vanta />
     </BrowserRouter>;
   </Provider>
 );
