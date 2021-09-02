@@ -69,6 +69,7 @@
     "redux": "^4.1.1",
     "redux-devtools-extension": "^2.13.9",
     "styled-jsx": "^4.0.0",
-    "surge": "^0.23.0"
+    "surge": "^0.23.0",
+    "vanta": "^0.5.21"
   }
 }
