@@ -18,6 +18,9 @@ const Home = ({
 }) => (
   <>
     <Header />
+    <div id="stars" />
+    <div id="stars2" />
+    <div id="stars3" />
     <main className="home-main">
       <div className="home-banniere">
         <img className="home-banniere-img" src={banniere} alt="banniere-img" />
