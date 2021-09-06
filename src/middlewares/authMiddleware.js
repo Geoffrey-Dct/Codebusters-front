@@ -61,7 +61,7 @@ const authMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           // console.log(error);
-          // console.log(error.response);
+          console.log(error.response);
           store.dispatch(displayErrormessage(error.response.data.errors.detail));
           store.dispatch(clearInput('email', ''));
           store.dispatch(clearInput('nickname', ''));
