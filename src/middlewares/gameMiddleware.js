@@ -10,20 +10,22 @@ import {
 } from 'src/actions/game';
 import { setLoading } from 'src/actions/loading';
 import { clearInput, displayErrormessage } from 'src/actions/popup';
+import { handleLogOut } from 'src/actions/auth';
+import { toggleDisplayPopupLogin } from 'src/actions/buttonLog';
 
 const gameMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case START_GAME: {
       store.dispatch(setLoading());
       const { id } = store.getState().auth;
+      const token = sessionStorage.getItem('token').replace(/"/g, '');
       axios.post('http://3.238.70.10/api/game/create', { user: id },
         {
           headers: {
-            Authorization: `Bearer ${store.getState().auth.token}`,
+            Authorization: `Bearer ${token}`,
           },
         })
         .then((response) => {
-          console.log(response);
           store.dispatch(saveDataGame(
             response.data.game.status,
             response.data.items,
@@ -34,7 +36,12 @@ const gameMiddleware = (store) => (next) => (action) => {
           store.dispatch(setLoading());
         })
         .catch((error) => {
-          console.log(error);
+          if (error.response.data.message === 'Expired JWT Token') {
+            store.dispatch(handleLogOut());
+            store.dispatch(displayErrormessage('veuillez vous reconnecter s\'il vous plaît'));
+            store.dispatch(toggleDisplayPopupLogin());
+          }
+          store.dispatch(setLoading());
         })
         .then(() => {
           store.dispatch(setLoadingGame());
@@ -51,7 +58,6 @@ const gameMiddleware = (store) => (next) => (action) => {
           },
         })
         .then((response) => {
-          console.log(response);
           if (response.data.answer) {
             store.dispatch(setWin(true));
           }

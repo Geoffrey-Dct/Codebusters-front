@@ -7,6 +7,7 @@ export const SUBMIT_USER_UPDATE = 'SUBMIT_USER_UPDATE';
 export const SUBMIT_USER_PASSWORD = 'SUBMIT_USER_PASSWORD';
 export const GET_USER_SCORES = 'GET_USER_SCORES';
 export const SAVE_USER_SCORES = 'SAVE_USER_SCORES';
+export const SAVE_TOKEN = 'SAVE_TOKEN';
 
 // === action creators
 
@@ -42,4 +43,7 @@ export const submitUserPassword = () => ({
 });
 export const getUserScores = () => ({
   type: GET_USER_SCORES,
+});
+export const saveToken = () => ({
+  type: SAVE_TOKEN,
 });

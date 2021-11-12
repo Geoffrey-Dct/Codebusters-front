@@ -26,6 +26,8 @@ export const SET_SECONDS = 'SET_SECONDS';
 
 export const SET_MINUTES = 'SET_MINUTES';
 
+export const CHECK_DEVICE = ' CHECK_DEVICE';
+
 export const startGame = () => ({
   type: START_GAME,
 });
@@ -86,4 +88,7 @@ export const setSeconds = (value) => ({
 export const setMinutes = (value) => ({
   type: SET_MINUTES,
   value: value,
+});
+export const checkDevice = () => ({
+  type: CHECK_DEVICE,
 });

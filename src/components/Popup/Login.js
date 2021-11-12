@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { Redirect } from 'react-router-dom';
 import Field from './Field';
 import './login.scss';
 
@@ -49,9 +49,17 @@ const Login = ({
           <button className="login-button" type="submit">
             OK
           </button>
-          <a className="login-password-info" href="http://3.238.70.10/reset-password" target="_blank" rel="noreferrer">Mot de passe oublié ?</a>
+          <a
+            className="login-password-info"
+            href="http://3.238.70.10/reset-password"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Mot de passe oublié ?
+          </a>
         </form>
       </div>
+      <Redirect to="/" />
     </div>
   );
 };

@@ -51,16 +51,12 @@ const Scenarios = ({ isLogged, displayErrorMessage }) => {
                 {
                 scenario.status === 0
                 && (
-                <>
                   <div
-                    className="unavailable"
+                    className="scenarios-scenario unavailable"
+                    key={scenario.id}
                     onClick={() => {
                       displayErrorMessage('Désolé mais ce scénario est actuellement indisponible');
                     }}
-                  />
-                  <div
-                    className="scenarios-scenario"
-                    key={scenario.id}
                   >
                     <h2 className="scenarios-title">{scenario.nom}</h2>
                     <img className="scenarios-image" src={scenario.pic} alt="scenario" />
@@ -78,14 +74,13 @@ const Scenarios = ({ isLogged, displayErrorMessage }) => {
                       </ul>
                     </div>
                   </div>
-                </>
                 )
                 }
                 {
                 isLogged && scenario.status === 1
                 && (
                 <Link to={`/game/${slug}`}>
-                  <div className="scenarios-scenario" key={scenario.id} onClick={() => (startGameCondition())}>
+                  <div className="scenarios-scenario available" key={scenario.id} onClick={() => (startGameCondition())}>
                     <h2 className="scenarios-title">{scenario.nom}</h2>
                     <img className="scenarios-image" src={scenario.pic} alt="scenario" />
                     <p className="scenarios-text">{scenario.description}</p>

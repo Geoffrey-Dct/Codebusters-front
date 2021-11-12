@@ -14,6 +14,9 @@ const Intro = ({
   setSeconds,
   setMinutes,
   isLogged,
+  displayErrormessage,
+  mobile,
+  checkDevice,
 }) => {
   const { slug } = useParams();
   const result = scenarios.find((item) => item.slug === slug);
@@ -33,6 +36,12 @@ const Intro = ({
         setSeconds(1);
         setMinutes(1);
       })}
+      {useEffect(() => {
+        if (document.querySelector('html').clientWidth < 768) {
+          displayErrormessage('le jeu n`est pas adapté à votre appareil, veuillez nous excuser');
+          checkDevice();
+        }
+      })}
       <div id="stars" />
       <div id="stars2" />
       <div id="stars3" />
@@ -41,6 +50,7 @@ const Intro = ({
         <h2 className="intro-title">{result.nom}</h2>
         <p className="intro-description">{result.description}</p>
         <img className="intro-img" src={result.pic} alt="scenario" />
+        {!mobile && (
         <button
           type="button"
           className="intro-button"
@@ -49,6 +59,7 @@ const Intro = ({
           }}
         >Lancez la partie
         </button>
+        )}
       </div>
       <Footer />
       {!isLogged && <Redirect to="/" />}
@@ -61,6 +72,9 @@ Intro.propTypes = {
   setMinutes: PropTypes.func.isRequired,
   setSeconds: PropTypes.func.isRequired,
   isLogged: PropTypes.bool.isRequired,
+  displayErrormessage: PropTypes.func.isRequired,
+  mobile: PropTypes.bool.isRequired,
+  checkDevice: PropTypes.func.isRequired,
 };
 
 export default Intro;

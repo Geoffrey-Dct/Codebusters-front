@@ -92,86 +92,111 @@ $shadows-big:    multiple-box-shadow(100);
   justify-content: center;
   align-items: center;
   margin: 1em;
+  width: 100%;
 
   .home-text {
     color: white;
     font-family: "Meta";
     text-transform: uppercase;
-    font-size: 1.5rem;
+    font-size: 1.5em;
     text-align: center;
     font-variation-settings: "wght" 900, "ital" 1;
     margin-top:1.5em;
     margin-bottom: 2.5em;
   }
-.popular-scenarios-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin: 3px;
-  padding: 10px;
-  box-sizing: border-box;
-  background-color: vars.$color-popup-background;
-
-  .popular-scenarios-scenario {
-    width: 250px;
-    height: 400px;
-    margin:10px;
+  .popular-scenarios-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 5px 5px 5px rgb(165, 159, 159);
-    transition: all 0.5s ease;
-    cursor: pointer;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2em;
+    box-sizing: border-box;
+    background-color: vars.$color-popup-background;
+    width: 65%;
 
-    .popular-scenarios-scenario-image {
-      width: 150px;
-      height: 150px;
-      border: 2px solid black;
-
-    }
-
-    .popular-scenarios-scenario-text {
-      color: black;
-      border: none;
-      padding: 5px;
-      text-align: justify;
-      margin: 2px;
-      box-sizing: border-box;
-      width: 200px;
-      height: 230px;
-    }
-
-    .popular-scenarios-scenario-rate ul {
+    
+    .popular-scenarios-scenario {
+      width: 100%;
+      padding: 1em;
       display: flex;
-      margin:0.8em;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 5px 5px 5px rgb(165, 159, 159);
+      
+      
+      
+
+      .popular-scenarios-scenario-image {
+        width: 150px;
+        height: 150px;
+        border: 2px solid black;
+
+      }
+
+      .popular-scenarios-scenario-text {
+        color: black;
+        border: none;
+        padding: 5px;
+        text-align: justify;
+        margin: 2px;
+        box-sizing: border-box;
+        width: 200px;
+        height: 230px;
+      }
+
+      .popular-scenarios-scenario-rate ul {
+        display: flex;
+        margin:0.8em;
+      }
+
+      .--gold {
+        color: yellow;
+      }
+
+      .scenario-star {
+        color: black;
+      }
     }
 
-    .--gold {
-      color: yellow;
+    .available {
+      background-color: whitesmoke;
+      cursor: pointer;
+      transition: all 0.5s ease;
+      &:hover {
+        transform: scale(1.03);
+      }
+    }
+    .unavailable {
+      background-color: rgba(15, 15, 15, 0.644);
+  
+      
+      .popular-scenarios-scenario-image {
+        filter: grayscale(80%);
+      }
+
+      .popular-scenarios-scenario-rate ul li {
+        filter: grayscale(80%);
+      }
+
+      .popular-scenarios-subtitle {
+        filter: grayscale(80%);
+      }
     }
 
-    .scenario-star {
-      color: black;
-    }
-
-    &:hover {
-      transform: scale(1.03);
+    .popular-scenarios-subtitle {
+      font-family: "Meta";
+      font-variation-settings: "wght"900, "ital"1;
+      color: red;
+      padding-bottom: 2px;
+      margin: 2px;
     }
   }
 
-  .popular-scenarios-subtitle {
-    font-family: "Meta";
-    font-variation-settings: "wght"900, "ital"1;
-    color: red;
-    padding-bottom: 2px;
-    margin: 2px;
-  }
-}
-
-.unavailable {
-  width: 260px;
-  height: 415px;
-  background-color: rgba(39, 38, 38, 0.644);
-  position: absolute;
-}
+ @media  screen and (max-width: 768px) {
+   .home-text {
+     font-size: 0.8em;
+   }
+   .popular-scenarios-container {
+     width: 80%;
+   }
+ }
 }
