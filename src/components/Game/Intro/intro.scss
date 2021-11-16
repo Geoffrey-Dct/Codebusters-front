@@ -22,8 +22,7 @@
   border-right: 10px solid vars.$color-title-two ;  
 
   .intro-img{
-    width: 300px;
-    height: 300px;
+    width: 50%;
     margin-top: 1.5em;
   }
   .intro-title {
@@ -73,5 +72,15 @@
       color:red;
       cursor:pointer;
     }
+  }
 }
- }
+
+@media  screen and (max-width: 768px) {
+  .intro-container {
+    width: 80%;
+
+    .intro-img {
+      width: 70%;
+    }
+  }
+}

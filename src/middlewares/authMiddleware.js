@@ -27,7 +27,6 @@ const authMiddleware = (store) => (next) => (action) => {
       axios.post('http://3.238.70.10/api/login', { username: email, password: password })
         .then((response) => {
         // Lorsqu'on reçoit la réponse, on enregistre le pseudo et la valeur true à islogged
-          // console.log(response.data.user);
           // Lorsqu'on reçoit la réponse, on enregistre le pseudo et l'email
           store.dispatch(saveUserData(
             response.data.user.id,
@@ -35,10 +34,14 @@ const authMiddleware = (store) => (next) => (action) => {
             response.data.user.email,
             response.data.token,
           ));
+          sessionStorage.setItem('id', response.data.user.id);
+          sessionStorage.setItem('token', response.data.token);
+          sessionStorage.setItem('email', response.data.user.email);
+          sessionStorage.setItem('nickname', response.data.user.nickname);
+
           store.dispatch(setLoading());
         })
         .catch((error) => {
-          // console.log(error.response);
           store.dispatch(displayErrormessage(error.response.data.message));
           store.dispatch(clearInput('password', ''));
           store.dispatch(clearInput('email', ''));
@@ -104,7 +107,6 @@ const authMiddleware = (store) => (next) => (action) => {
           store.dispatch(setLoading());
         })
         .catch(() => {
-          // console.log(error);
           store.dispatch(displayErrormessage('une erreur s\'est produite, veuillez réessayer'));
           store.dispatch(setLoading());
         });

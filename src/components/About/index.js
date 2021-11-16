@@ -16,9 +16,8 @@ const About = () => (
     <Header />
     <div className="about-container">
       <h2 className="about-title">Le projet</h2>
-      <section className="about-text">
-      CodeBusters est une plateforme d’Escape Games en ligne qui gravite dans l’univers du développement web. Sur un ton décalé, le produit se veut divertissant tout autant que réaliste dans ses énigmes, le propos étant de plonger le joueur dans le milieu en l’invitant à résoudre des énigmes décalées mais instructives. 
-      </section>
+      <p className="about-text">CodeBusters est une plateforme d’Escape Games en ligne qui gravite dans l’univers du développement web. Sur un ton décalé, le produit se veut divertissant tout autant que réaliste dans ses énigmes, le propos étant de plonger le joueur dans le milieu en l’invitant à résoudre des énigmes décalées mais instructives.
+      </p>
       <h2 className="about-title">L'équipe</h2>
       <section className="about-section">
         {teamList.map((teamMember) => (

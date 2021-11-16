@@ -9,6 +9,7 @@ import {
   SET_CURRENT_DESCRIPTION,
   SET_SECONDS,
   SET_MINUTES,
+  CHECK_DEVICE,
 } from 'src/actions/game';
 import { CHANGE_FIELD } from 'src/actions/popup';
 
@@ -27,6 +28,7 @@ const initialState = {
   currentDescription: '',
   seconds: 1,
   minutes: 1,
+  mobile: false,
 };
 
 function gameReducer(state = initialState, action = {}) {
@@ -88,6 +90,11 @@ function gameReducer(state = initialState, action = {}) {
       return {
         ...state,
         minutes: action.value,
+      };
+    case CHECK_DEVICE:
+      return {
+        ...state,
+        mobile: true,
       };
     default:
       return state;

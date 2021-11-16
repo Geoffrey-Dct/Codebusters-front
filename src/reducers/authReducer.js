@@ -13,15 +13,30 @@ import {
   CLEAR_INPUT,
 } from 'src/actions/popup';
 
-const initialState = {
-  nickname: '',
-  email: '',
-  password: '',
-  isLogged: false,
-  token: '',
-  id: '',
-  scores: [],
-};
+let initialState = {};
+
+if (sessionStorage.length !== 0) {
+  initialState = {
+    nickname: sessionStorage.getItem('nickname'),
+    email: sessionStorage.getItem('email'),
+    password: '',
+    isLogged: true,
+    token: sessionStorage.getItem('token'),
+    id: sessionStorage.getItem('id'),
+    scores: [],
+  };
+}
+else {
+  initialState = {
+    nickname: '',
+    email: '',
+    password: '',
+    isLogged: false,
+    token: '',
+    id: '',
+    scores: [],
+  };
+}
 
 function authReducer(state = initialState, action = {}) {
   switch (action.type) {

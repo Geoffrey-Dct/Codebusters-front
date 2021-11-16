@@ -10,8 +10,8 @@
   .title-container {
     
     .title-title {
-      padding-left: 0.8em;
       margin-top: 0.5em;
+      padding-left: 0.8em;
       transition: all 0.5s;
       -webkit-text-stroke: 2px vars.$color-title-contouring;
       font-variation-settings: "wght" 900, "ital" 1;
@@ -32,6 +32,13 @@
         }
         @media screen and (max-width: 768px) {
           font-size: 2rem;
+          padding-left: 0;
+          text-shadow:
+          4px 2px 0px vars.$color-title-two,
+          7px 5px 1px vars.$color-title-three,
+          10px 7px 2px vars.$color-title-four,
+          14px 10px 3px vars.$color-title-five,
+          22px 15px 5px vars.$color-title-last; ;
       }
     }
   }

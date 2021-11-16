@@ -16,9 +16,10 @@ import {
   setSeconds,
   setMinutes,
   setWin,
+  checkDevice,
 } from 'src/actions/game';
 
-import { changeField, toggleDisplayPopupComment } from 'src/actions/popup';
+import { changeField, toggleDisplayPopupComment, displayErrormessage } from 'src/actions/popup';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -37,6 +38,7 @@ const mapStateToProps = (state) => ({
   currentDescription: state.game.currentDescription,
   seconds: state.game.seconds,
   minutes: state.game.minutes,
+  mobile: state.game.mobile,
 });
 
 // === mapDispatchToProps
@@ -97,6 +99,14 @@ const mapDispatchToProps = (dispatch) => ({
 
   setMinutes: (value) => {
     dispatch(setMinutes(value));
+  },
+
+  displayErrormessage: (content) => {
+    dispatch(displayErrormessage(content));
+  },
+
+  checkDevice: () => {
+    dispatch(checkDevice());
   },
 
 });
