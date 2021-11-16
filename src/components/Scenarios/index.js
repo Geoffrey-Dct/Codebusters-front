@@ -35,7 +35,6 @@ const Scenarios = ({ isLogged, displayErrorMessage }) => {
       <div id="stars3" />
       <Header />
       <main className="scenarios-container">
-        <div className="scenarios-list">
           {scenarios.map((scenario) => {
             // renvoi true si la valeur est vrai ce qui permet, à l'aide de className,
             // de conditionner la l'utilisation de la classe qui donne la couleur jaune à l'étoile.
@@ -133,7 +132,6 @@ const Scenarios = ({ isLogged, displayErrorMessage }) => {
               </div>
             );
           })}
-        </div>
       </main>
       <Footer />
     </>

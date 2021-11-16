@@ -65,7 +65,7 @@
   .profil-button {
     color:white;
     background-color: vars.$color-background;
-    width:150px;
+    width:8em;
     height:70px;
     font-family: "Meta";
     text-transform:uppercase;
@@ -73,7 +73,14 @@
     margin:1em;
     font-size: 15px;
     border:none;
+    border-radius: 10px;
 
   }
 
+}
+
+@media screen and (max-width: 768px) {
+  .profil-main {
+    width: 80%;
+  }
 }
